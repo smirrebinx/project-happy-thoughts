@@ -9,7 +9,7 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
   return (
     <section className="thoughtList">
       {thoughtList.map((thought) => (
-        <div className="singleThought" key={thought._id}>
+        <div className="singleThought" key={thought._id}>{/* eslint-disable-line */}
           <h3>{thought.message}</h3>
           <div className="likeAndTime">
             <div className="btnAndCounter">
@@ -23,7 +23,7 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
               <p className="counter">{thought.hearts}</p>
             </div>
             <p className="time">{formatDistanceToNow(
-              new Date(thought.createAt),
+              new Date(thought.createdAt),
               Date.now(),
               { addSuffix: true }
             )}
