@@ -9,7 +9,7 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
   return (
     <section className="thoughtList">
       {thoughtList.map((thought) => (
-        <div className="singleThought" key={thought._id}>{/* eslint-disable-line */}
+        <div className="singleThought" key={thought._id}>
           <h3>{thought.message}</h3>
           <div className="likeAndTime">
             <div className="btnAndCounter">

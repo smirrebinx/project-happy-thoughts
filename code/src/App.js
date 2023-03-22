@@ -56,7 +56,7 @@ export const App = () => {
       }
     }
 
-    fetch(`https://project-happy-thoughts-api-nr7fpk77ra-lz.a.run.app/thoughts/${_id}/hearts`, options)
+    fetch(`https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${_id}/like`, options)
       .then((res) => res.json())
       .then(() => fetchThoughts())
       .finally(() => setNewThought());
