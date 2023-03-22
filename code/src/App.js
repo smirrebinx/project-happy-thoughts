@@ -24,7 +24,7 @@ export const App = () => {
     setNewThought(event.target.value);
   }
 
-  const handleFormCleanup = (event) => {
+  const handleFormCleanup = () => {
     setNewThought('');
     setLoading(false);
   }
@@ -35,14 +35,31 @@ export const App = () => {
     const options = {
       method: 'POST',
       headers: {
-        body: JSON.stringify({ message: newThought })
-      }
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: newThought
+      })
     }
 
     fetch('https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts', options)
       .then((res) => res.json())
       .then(() => fetchThoughts())
-      .finally(() => handleFormCleanup(false));
+      .finally(() => handleFormCleanup(''));
+  }
+
+  const handleLikes = (_id) => {
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    fetch(`https://project-happy-thoughts-api-nr7fpk77ra-lz.a.run.app/thoughts/${_id}/hearts`, options)
+      .then((res) => res.json())
+      .then(() => fetchThoughts())
+      .finally(() => setNewThought());
   }
 
   return (
