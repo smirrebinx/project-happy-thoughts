@@ -5,10 +5,14 @@ const Header = () => {
   return (
     <div className="header">
       <h1>Happy Thoughts</h1>
-      <img
-        src={celebration}
-        className="celebration-img"
-        alt="Illustration of people celebrating" />
+      <div className="stage">
+        <div className="image bounce">
+          <img
+            src={celebration}
+            className="celebration-img"
+            alt="Illustration of people celebrating" />
+        </div>
+      </div>
     </div>
   );
 }
