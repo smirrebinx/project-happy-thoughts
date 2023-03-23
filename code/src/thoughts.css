@@ -86,13 +86,13 @@ margin-top: 30px;
 .counter {
   float: left;
   position: relative;
-  top: 10px;
+  top: 12px;
   opacity: 0.5;
 }
 
 .time {
   position: relative;
-  bottom: 5px;
+  bottom: 3px;
   opacity: 0.5;
 }
 
