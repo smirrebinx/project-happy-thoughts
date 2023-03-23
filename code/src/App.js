@@ -13,11 +13,9 @@ export const App = () => {
     setLoading(true);
     fetch('https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts')
       .then((res) => {
-        console.log('Response from API:', res);
         return res.json();
       })
       .then((data) => {
-        console.log('Response data:', data);
         setThoughtList(data);
       })
       .catch((error) => console.error(error))
@@ -66,11 +64,9 @@ export const App = () => {
 
     fetch(`https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${_id}/like`, options)
       .then((res) => {
-        console.log('Response from POST request:', res);
         return res.json();
       })
       .then((data) => {
-        console.log('Response data:', data);
         const updatedThoughtList = thoughtList.map((thought) => {
           if (thought._id === data._id) {
             return {
