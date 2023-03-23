@@ -1,12 +1,17 @@
 
 h2 {
 font-size: 18px;
+margin: 0;
+font-weight: 900;
 }
 
 .outerWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 400px;
+  gap: 30px;
+  margin:auto;
 }
 
 .innerWrapper {
@@ -18,18 +23,16 @@ font-size: 18px;
 .thoughtForm {
   border: 1px solid black;
   background-color: rgb(227, 227, 227);
-  margin: 30px auto;
-  padding-left: 40px;
-  padding-bottom: 30px;
+  margin: 30px 20px auto;
+  padding: 20px;
   box-shadow: 7px 7px;
-  width: 50%;
+  width: 80%;
 }
 
 .formBtn{
   font-family: 'Noto Sans Mono', monospace;
   background-color: rgb(241, 198, 198);
   border: none;
-  margin-top: 10px;
   border-radius: 20px;
   padding: 10px;
 }
@@ -40,11 +43,8 @@ font-size: 18px;
 }
 
 .textArea {
-  width: 100%;
-  max-width: 90%;
-  height: 200px;
-  min-height: 100px;
-  max-height: 400px;
+  width: 90%;
+  min-height: 50px;
   resize: horizontal;
   overflow-y: auto;
   margin: 10px 0;
@@ -56,17 +56,16 @@ font-size: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
 }
 
 .singleThought {
   background-color: rgb(250, 250, 250);
   border: 1px solid black;
-  margin: 30px;
+  margin: 30px 10px 0;
   padding: 10px;
   box-shadow: 7px 7px;
   font-size: 14px;
-  width: 100%;
+  width: 85%;
 }
 
 .likeAndTime{ 
