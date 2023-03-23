@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ThoughtList from 'components/ThoughtList';
 import ThoughtForm from 'components/ThoughtForm';
+import Header from 'components/Header';
 
 export const App = () => {
   const [thoughtList, setThoughtList] = useState([]);
@@ -86,6 +87,7 @@ export const App = () => {
 
   return (
     <div className="outerWrapper">
+      <Header />
       <div className="innerWrapper">
         <ThoughtForm
           newThought={newThought}
