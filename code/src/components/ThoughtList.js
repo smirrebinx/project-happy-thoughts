@@ -4,7 +4,7 @@ import { formatDistanceToNow } from 'date-fns';
 
 const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
   if (loading) {
-    return <h2>Loading</h2>
+    return <h3 className="loading">Loading...</h3>
   }
   return (
     <section className="thoughtList">

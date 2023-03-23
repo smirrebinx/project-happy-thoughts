@@ -5,6 +5,10 @@ margin: 0;
 font-weight: 900;
 }
 
+.loading h3 {
+margin-top: 30px;
+}
+
 .outerWrapper {
   display: flex;
   flex-direction: column;
