@@ -14,13 +14,14 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
           <div className="likeAndTime">
             <div className="btnAndCounter">
               <button
+                aria-label="Like-button"
                 type="button"
                 className="likeBtn"
                 onClick={() => { handleLikes(thought._id, thought.hearts); }}
-                style={{ background: thought.hearts >= 1 ? 'rgb(241, 198, 198)' : 'lightgrey' }}>
+                style={{ background: thought.hearts >= 1 ? 'rgb(237, 164, 175)' : 'lightgrey' }}>
                                 ❤️
               </button>
-              <p className="counter">{thought.hearts}</p>
+              <span className="counter">x {thought.hearts}</span>
             </div>
             <p className="time">{formatDistanceToNow(
               new Date(thought.createdAt),

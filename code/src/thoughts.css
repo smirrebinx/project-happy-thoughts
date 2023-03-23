@@ -26,19 +26,19 @@ font-weight: 900;
   margin: 30px 20px auto;
   padding: 20px;
   box-shadow: 7px 7px;
-  width: 80%;
+  width: 70%;
 }
 
 .formBtn{
   font-family: 'Noto Sans Mono', monospace;
-  background-color: rgb(241, 198, 198);
+  background-color: rgb(237, 164, 175);
   border: none;
   border-radius: 20px;
   padding: 10px;
 }
 
 .formBtn:hover {
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   cursor: pointer;
 }
 
@@ -65,7 +65,7 @@ font-weight: 900;
   padding: 10px;
   box-shadow: 7px 7px;
   font-size: 14px;
-  width: 85%;
+  width: 100%;
 }
 
 .likeAndTime{ 
@@ -77,6 +77,19 @@ font-weight: 900;
 .btnAndCounter {
   display: flex;
   flex-direction: row;
+}
+
+.counter {
+  float: left;
+  position: relative;
+  top: 10px;
+  opacity: 0.5;
+}
+
+.time {
+  position: relative;
+  bottom: 5px;
+  opacity: 0.5;
 }
 
 .likeBtn {
