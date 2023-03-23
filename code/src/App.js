@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: 0 */
 import React, { useState, useEffect } from 'react';
 import ThoughtList from 'components/ThoughtList';
 import ThoughtForm from 'components/ThoughtForm';
@@ -67,8 +68,20 @@ export const App = () => {
         console.log('Response from PATCH request:', res);
         return res.json();
       })
-      .then(() => fetchThoughts())
-      .finally(() => setNewThought());
+      .then((data) => {
+        console.log('Response data:', data);
+        const updatedThoughtList = thoughtList.map((thought) => {
+          if (thought._id === data._id) {
+            return {
+              ...thought,
+              hearts: data.hearts
+            };
+          }
+          return thought;
+        });
+        setThoughtList(updatedThoughtList);
+      })
+      .catch((error) => console.error(error));
   }
 
   return (

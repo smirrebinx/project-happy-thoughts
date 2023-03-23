@@ -4,7 +4,7 @@ import { formatDistanceToNow } from 'date-fns';
 
 const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
   if (loading) {
-    return <h2>Loading...</h2>
+    return <h2>Loading</h2>
   }
   return (
     <section className="thoughtList">
@@ -16,7 +16,7 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
               <button
                 type="button"
                 className="likeBtn"
-                onClick={() => { handleLikes(thought._id); }}
+                onClick={() => { handleLikes(thought._id, thought.hearts); }}
                 style={{ background: thought.hearts >= 1 ? 'rgb(241, 198, 198)' : 'lightgrey' }}>
                                 ❤️
               </button>
