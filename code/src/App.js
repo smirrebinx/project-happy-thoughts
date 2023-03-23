@@ -26,6 +26,7 @@ export const App = () => {
     fetchThoughts();
   }, []);
 
+  /* eslint-disable no-unused-vars */
   const handleNewThoughtChange = (event) => {
     setNewThought(event.target.value);
   }
@@ -87,7 +88,7 @@ export const App = () => {
       <div className="inner-wrapper">
         <ThoughtForm
           newThought={newThought}
-          onNewThoughtChange={handleNewThoughtChange}
+          setNewThought={setNewThought}
           onFormSubmit={onFormSubmit} />
         <ThoughtList
           loading={loading}

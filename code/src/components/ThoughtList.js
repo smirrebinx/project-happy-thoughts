@@ -10,7 +10,7 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
     <section className="thought-list">
       {thoughtList.map((thought) => (
         <div className="single-thought" key={thought._id}>
-          <h3>{thought.message}</h3>
+          <h2>{thought.message}</h2>
           <div className="like-and-time">
             <div className="btn-and-counter">
               <button
