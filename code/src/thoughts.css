@@ -1,5 +1,6 @@
 :root {
-  --headings-font-family: "Rye", cursive;
+  --1st-headings-font-family: "Rye", cursive;
+  --headings-font-family: "Segoe UI", sans-serif;
   --paragraph-font-family: "Newsreader", serif;
   --primary-bg-color: #94b1aa;
   --secondary-bg-color: rgb(237, 164, 175);
@@ -8,14 +9,19 @@
   --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.thought-form h2, .loading h3 {
+  font-family: var(--headings-font-family);
+}
+
 .header h1 {
   margin: 30px 0 0;
+  font-family: var(--1st-headings-font-family);
 }
 
 .thought-form h2 {
 font-size: 18px;
 margin: 0;
-font-weight: 900;
+font-weight: 650;
 }
 
 .loading h3 {
@@ -31,7 +37,7 @@ margin-top: 30px;
   border-radius: 50%;
   box-shadow: var(--box-shadow);
 }
-
+/* Animations from https://css-tricks.com/making-css-animations-feel-natural/ 2023-03-23*/
 .stage {
   display: flex;
   height: 300px;
@@ -87,7 +93,7 @@ margin-top: 30px;
 }
 
 .form-btn{
-  font-family: 'Noto Sans Mono', monospace;
+  font-family: var(--headings-font-family);
   background-color: var(--secondary-bg-color);
   border: none;
   border-radius: 20px;
@@ -160,4 +166,12 @@ margin-top: 30px;
 .like-btn:hover {
   border: 1px solid gray;
   cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
