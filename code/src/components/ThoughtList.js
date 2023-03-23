@@ -7,16 +7,16 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
     return <h3 className="loading">Loading...</h3>
   }
   return (
-    <section className="thoughtList">
+    <section className="thought-list">
       {thoughtList.map((thought) => (
-        <div className="singleThought" key={thought._id}>
+        <div className="single-thought" key={thought._id}>
           <h3>{thought.message}</h3>
-          <div className="likeAndTime">
-            <div className="btnAndCounter">
+          <div className="like-and-time">
+            <div className="btn-and-counter">
               <button
                 aria-label="Like-button"
                 type="button"
-                className="likeBtn"
+                className="like-btn"
                 onClick={() => { handleLikes(thought._id, thought.hearts); }}
                 style={{ background: thought.hearts >= 1 ? 'rgb(237, 164, 175)' : 'lightgrey' }}>
                                 ❤️

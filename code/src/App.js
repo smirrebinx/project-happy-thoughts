@@ -82,9 +82,9 @@ export const App = () => {
   }
 
   return (
-    <div className="outerWrapper">
+    <div className="outer-wrapper">
       <Header />
-      <div className="innerWrapper">
+      <div className="inner-wrapper">
         <ThoughtForm
           newThought={newThought}
           onNewThoughtChange={handleNewThoughtChange}
