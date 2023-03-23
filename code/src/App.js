@@ -56,33 +56,33 @@ export const App = () => {
   }
 
   const handleLikes = (_id) => {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }
-  }
 
-  fetch(`https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${_id}/like`, options)
-    .then((res) => {
-      console.log('Response from POST request:', res);
-      return res.json();
-    })
-    .then((data) => {
-      console.log('Response data:', data);
-      const updatedThoughtList = thoughtList.map((thought) => {
-        if (thought._id === data._id) {
-          return {
-            ...thought,
-            hearts: data.hearts
-          };
-        }
-        return thought;
-      });
-      setThoughtList(updatedThoughtList);
-    })
-    .catch((error) => console.error(error));
-}
+    fetch(`https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${_id}/like`, options)
+      .then((res) => {
+        console.log('Response from POST request:', res);
+        return res.json();
+      })
+      .then((data) => {
+        console.log('Response data:', data);
+        const updatedThoughtList = thoughtList.map((thought) => {
+          if (thought._id === data._id) {
+            return {
+              ...thought,
+              hearts: data.hearts
+            };
+          }
+          return thought;
+        });
+        setThoughtList(updatedThoughtList);
+      })
+      .catch((error) => console.error(error));
+  }
 
   return (
     <div className="outerWrapper">
