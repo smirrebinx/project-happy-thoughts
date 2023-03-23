@@ -10,8 +10,14 @@ export const App = () => {
   const fetchThoughts = () => {
     setLoading(true);
     fetch('https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts')
-      .then((res) => res.json())
-      .then((data) => setThoughtList(data))
+      .then((res) => {
+        console.log('Response from API:', res);
+        return res.json();
+      })
+      .then((data) => {
+        console.log('Response data:', data);
+        setThoughtList(data);
+      })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }
@@ -57,7 +63,10 @@ export const App = () => {
     }
 
     fetch(`https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${_id}/like`, options)
-      .then((res) => res.json())
+      .then((res) => {
+        console.log('Response from PATCH request:', res);
+        return res.json();
+      })
       .then(() => fetchThoughts())
       .finally(() => setNewThought());
   }
