@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
 const ThoughtForm = ({ newThought, setNewThought, onFormSubmit }) => {
@@ -13,8 +15,19 @@ const ThoughtForm = ({ newThought, setNewThought, onFormSubmit }) => {
 
   const isOverLimit = charCount > 140;
 
+  const resetCharCount = () => {
+    setCharCount(0);
+  };
+
   return (
-    <form className="thought-form" onSubmit={onFormSubmit} aria-label="Happy Thoughts Form">
+    <form
+      className="thought-form"
+      onSubmit={(event) => {
+        event.preventDefault();
+        onFormSubmit(event);
+        resetCharCount(); // Reset the character count after submitting the form
+      }}
+      aria-label="Happy Thoughts Form">
       <h2 aria-hidden="true">{'What\'s making you happy right now?'}</h2>
       <label htmlFor="happy-thought-input" className="sr-only">
         Type your happy thought here:
@@ -39,3 +52,4 @@ const ThoughtForm = ({ newThought, setNewThought, onFormSubmit }) => {
 };
 
 export default ThoughtForm;
+
