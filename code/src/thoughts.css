@@ -24,14 +24,16 @@ font-weight: 650;
 
 .single-thought h2 {
 margin-bottom: 0.5rem;
+font-size: 1.5rem;
+white-space: pre-wrap;
+word-wrap: break-word;
+overflow: hidden;
+text-overflow: ellipsis;
 font-size: 18px;
 margin: 0;
 font-weight: 500;
 max-height: 200px; 
-overflow: auto;
 }
-
-
 
 .loading h3 {
 margin-top: 30px;
@@ -192,4 +194,11 @@ margin-top: 30px;
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+/* ---- DESKTOP ----- */
+@media only screen and (min-width: 1280px) { 
+  .single-thought h2 {
+    max-height: 3rem;
+  }
 }
