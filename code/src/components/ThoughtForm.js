@@ -2,18 +2,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
-const MAX_CHARS = 140;
-
 const ThoughtForm = ({ newThought, setNewThought, onFormSubmit }) => {
-  const [charCount, setCharCount] = useState(MAX_CHARS);
+  const [charCount, setCharCount] = useState(0);
 
   const handleNewThoughtChange = (event) => {
     const inputText = event.target.value;
     setNewThought(inputText);
-    setCharCount(MAX_CHARS - inputText.length);
+    setCharCount(inputText.length);
   };
 
-  const isOverLimit = charCount < 0;
+  const isOverLimit = charCount > 140;
 
   return (
     <form className="thought-form" onSubmit={onFormSubmit} aria-label="Happy Thoughts Form">
@@ -27,11 +25,11 @@ const ThoughtForm = ({ newThought, setNewThought, onFormSubmit }) => {
         className="text-area"
         value={newThought}
         onChange={handleNewThoughtChange}
-        maxLength={MAX_CHARS}
+        maxLength={1000}
         aria-label="Happy thought input"
         aria-invalid={isOverLimit} />
       <div className="char-count" style={{ color: isOverLimit ? 'red' : 'inherit' }}>
-        {MAX_CHARS - charCount}/{MAX_CHARS}
+        {isOverLimit ? <span>{charCount}</span> : <span>{charCount}</span>}/140
       </div>
       <button className="form-btn" type="submit" disabled={isOverLimit}>
         ❤️ Send Happy Thought! ❤️
