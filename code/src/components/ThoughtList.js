@@ -27,7 +27,7 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
               new Date(thought.createdAt),
               Date.now(),
               { addSuffix: true }
-            )}
+            )} ago
             </p>
           </div>
         </div>
