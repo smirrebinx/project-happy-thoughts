@@ -1,4 +1,5 @@
 /* eslint no-underscore-dangle: 0 */
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import ThoughtList from 'components/ThoughtList';
 import ThoughtForm from 'components/ThoughtForm';
@@ -13,13 +14,13 @@ export const App = () => {
     setLoading(true);
     fetch('https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts')
       .then((res) => {
-        return res.json();
+        return res.json(); // Convert response to JSON
       })
       .then((data) => {
-        setThoughtList(data);
+        setThoughtList(data); // Update thought list state with fetched data
       })
       .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false)); // Set loading state to false regardless of success or failure
   }
 
   useEffect(() => {
@@ -28,11 +29,12 @@ export const App = () => {
 
   /* eslint-disable no-unused-vars */
   const handleNewThoughtChange = (event) => {
-    setNewThought(event.target.value);
+    setNewThought(event.target.value); // Update new thought state with input value
   }
 
+  // Define function to clean up after form submission
   const handleFormCleanup = () => {
-    setNewThought('');
+    setNewThought(''); // Reset new thought state to empty string
     setLoading(false);
   }
 
@@ -56,7 +58,7 @@ export const App = () => {
   }
 
   const handleLikes = (_id) => {
-    const options = {
+    const options = { // Define options for fetch request
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable max-len */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
+// Define a functional component named ThoughtForm that accepts props for the new thought,
+// a function to update the new thought, and a function to handle form submission
+// Define state to track the character count of the new thought
 const ThoughtForm = ({ newThought, setNewThought, onFormSubmit }) => {
   const [charCount, setCharCount] = useState(0);
 
@@ -13,12 +14,15 @@ const ThoughtForm = ({ newThought, setNewThought, onFormSubmit }) => {
     setCharCount(inputText.length);
   };
 
+  // Define a boolean variable to indicate if the character count is over the limit
   const isOverLimit = charCount > 140;
 
+  // Define a function to reset the character count to 0
   const resetCharCount = () => {
     setCharCount(0);
   };
 
+  // Call the onFormSubmit function passed in as a prop with the event object as an argument
   return (
     <form
       className="thought-form"
