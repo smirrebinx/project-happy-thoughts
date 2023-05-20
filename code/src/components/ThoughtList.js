@@ -9,7 +9,6 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
   if (loading) {
     return <h3 className="loading">Loading...</h3>
   }
-  // Otherwise, render the list of thoughts.
   return (
     <section className="thought-list">
       {/* Map over the thoughtList array and render each thought. */}
@@ -23,7 +22,7 @@ const ThoughtList = ({ loading, thoughtList, handleLikes }) => {
                 aria-label="Like-button"
                 type="button"
                 className="like-btn"
-                onClick={() => { handleLikes(thought._id, thought.hearts); }}
+                onClick={() => { handleLikes(thought._id); }}
                 style={{ background: thought.hearts >= 1 ? 'rgb(237, 164, 175)' : 'lightgrey' }}>
                                 ❤️
               </button>
