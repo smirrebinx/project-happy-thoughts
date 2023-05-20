@@ -10,11 +10,13 @@ export const App = () => {
   const [loading, setLoading] = useState(false);
   const [newThought, setNewThought] = useState('');
 
+  const APIURL = 'https://project-happy-thoughts-api-kpnlmcrmoq-lz.a.run.app'
+
   const fetchThoughts = () => {
     setLoading(true);
-    fetch('https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts')
-      .then((res) => {
-        return res.json(); // Convert response to JSON
+    fetch(`${APIURL}/thoughts`)
+      .then((response) => {
+        return response.json(); // Convert response to JSON
       })
       .then((data) => {
         setThoughtList(data); // Update thought list state with fetched data
@@ -51,33 +53,26 @@ export const App = () => {
       })
     }
 
-    fetch('https://project-happy-thoughts-api-kpnlmcrmoq-lz.a.run.app/thoughts', options)
-      .then((res) => res.json())
-      .then(() => {
-        // Add a slight delay before fetching the updated thoughts
-        setTimeout(fetchThoughts, 500);
-      })
+    fetch(`${APIURL}/thoughts`, options)
+      .then((response) => response.json())
+      .then(() => fetchThoughts())
       .finally(() => handleFormCleanup());
   };
 
-  const handleLikes = (thoughtId) => {
+  const handleLikes = (_id) => {
     const options = { // Define options for fetch request
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       }
-    }
-    fetch(`https://project-happy-thoughts-api-kpnlmcrmoq-lz.a.run.app/thoughts/${thoughtId}/like`, options)
-      .then((res) => {
-        return res.json();
-      })
+    };
+    fetch(`${APIURL}/thoughts/${_id}/like`, options)
+      .then((response) => response.json())
       .then((data) => {
         const updatedThoughtList = thoughtList.map((thought) => {
-          if (thought._id === data.res_id) {
-            return {
-              ...thought,
-              hearts: data.hearts
-            };
+          if (thought._id === data.response._id) {
+            thought.hearts += 1;
+            return thought;
           }
           return thought;
         });
