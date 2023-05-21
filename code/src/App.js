@@ -70,9 +70,8 @@ export const App = () => {
       .then((response) => response.json())
       .then((data) => {
         const updatedThoughtList = thoughtList.map((thought) => {
-          if (thought._id === data.response._id) {
-            thought.hearts += 1;
-            return thought;
+          if (thought._id === data._id) {
+            return data;
           }
           return thought;
         });
