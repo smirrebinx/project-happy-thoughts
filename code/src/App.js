@@ -71,7 +71,7 @@ export const App = () => {
       .then((data) => {
         const updatedThoughtList = thoughtList.map((thought) => {
           if (thought._id === data._id) {
-            return data;
+            return data; // Replace the thought with the updated thought from the server
           }
           return thought;
         });
